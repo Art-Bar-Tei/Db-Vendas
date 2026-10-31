@@ -1,0 +1,74 @@
+﻿using ProjetoVenda.controller;
+using ProjetoVenda.model;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace ProjetoVenda.view
+{
+    public partial class frmPrincipal : Form
+    {
+        private EmployeeController controller;
+
+        public frmPrincipal()
+        {
+            InitializeComponent();
+            controller = new EmployeeController();
+            Employee? funcionario = controller.usuarioAutenticado();
+            string nome = (funcionario != null) ? funcionario.nome : "";
+            this.Text += $" - {nome}";
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            //string username = Session.username;
+            bool isAdmin = Session.isAdmin;
+            //this.lblUsername.Text = username;
+        }
+
+        private void exibirFormulario(Form formulario)
+        {
+            while (painelPrincipal.Controls.Count > 0)
+            {
+                painelPrincipal.Controls[0].Dispose();
+            }
+
+            formulario.TopLevel = false;
+            formulario.FormBorderStyle = FormBorderStyle.None;
+            formulario.Dock = DockStyle.Fill;
+
+            painelPrincipal.Controls.Add(formulario);
+            formulario.Show();
+        }
+
+        private void btnCadFuncionario_Click(object sender, EventArgs e)
+        {
+            frmCadastroFuncionario frm = new frmCadastroFuncionario();
+            exibirFormulario(frm);
+        }
+
+        private void btnCadProduto_Click(object sender, EventArgs e)
+        {
+            frmCadastroProduto frm = new frmCadastroProduto();
+            exibirFormulario(frm);
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            // evento para sair
+            controller.deslogar();
+            this.DialogResult = DialogResult.Retry;
+            this.Dispose();
+        }
+
+        private void btnPerfil_Click(object sender, EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            exibirFormulario(frm);
+        }
+    }
+}
