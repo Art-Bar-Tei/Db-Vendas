@@ -9,6 +9,17 @@ namespace ProjetoVenda.controller
 {
     internal class EmployeeController
     {
+        private EmployeeRepository repository;
+
+        public EmployeeController()
+        {
+            repository = new EmployeeRepository();
+        }
+
+        public List<Employee> getFuncionariosl()
+        {
+            return repository.getFuncionarios();
+        }
 
         public static bool login(string username, string password)
         {
@@ -40,32 +51,20 @@ namespace ProjetoVenda.controller
         }
 
 
-        public bool createEmployee(string nome, string telefone,
-            string rua, string numero, string cep, string complemento,
-            string usuario, string senha)
+        public bool createEmployee(Employee funcionario, Employee funcionarios)
         {
 
             // fazer verificação se o usuario nao existe
             // solicitar ao respository se o usuario existe
             EmployeeRepository respository = new EmployeeRepository();
-            Employee? resp = respository.getByUsername(usuario);
+            Employee? resp = respository.getByUsername(funcionarios.usuario);
             if (resp != null)
             {
                 return false;
             }
 
-            string hash = BCrypt.Net.BCrypt.HashPassword(senha);
-            Employee funcionario = new Employee{
-                nome = nome,
-                telefone = telefone,
-                rua = rua,
-                numero = numero,
-                cep = cep,
-                complemento = complemento,
-                usuario = usuario,
-                senha = hash
-            };
-            respository.createEmployee(funcionario);
+            string hash = BCrypt.Net.BCrypt.HashPassword(funcionarios.senha);
+           
             return true;
         }
 
@@ -76,6 +75,14 @@ namespace ProjetoVenda.controller
         public Employee? usuarioAutenticado()
         {
             return Session.userAuth;
+        }
+        public bool usuarioADM()
+        {
+            if (Session.userAuth == null)
+            {
+                return false;
+            }
+            return Session.userAuth.adm;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace ProjetoVenda.view
         {
             string nome = this.txtNome.Text;
             string marca = this.txtMarca.Text;
-            int preco = Convert.ToInt32(this.txtPreco.Text);
+            double preco = Convert.ToDouble(this.txtPreco.Text);
             int quantidade = Convert.ToInt32(this.txtQuantidade.Text);
 
             // encapsulado os dados
@@ -73,6 +73,7 @@ namespace ProjetoVenda.view
         {
             this.cbxQuantidadeItens.SelectedIndex = 0;
             carregarProdutos();
+
         }
 
         private void carregarProdutos()
@@ -86,7 +87,7 @@ namespace ProjetoVenda.view
 
             List<Product> list = controller.listarPorPagina(totalPorPagina, paginaAtual);
             this.dgvProdutos.DataSource = list;
-            this.dgvProdutos.Columns["cod_funcionario"].Visible = false;
+            this.dgvProdutos.Columns["id_funcionario"].Visible = false;
 
         }
 
@@ -103,7 +104,7 @@ namespace ProjetoVenda.view
             // evento de atualizar
             produtoSelecionado.nome = this.txtNome.Text;
             produtoSelecionado.marca = this.txtMarca.Text;
-            produtoSelecionado.preco = Convert.ToInt32(this.txtPreco.Text);
+            produtoSelecionado.preco = Convert.ToDouble(this.txtPreco.Text);
             produtoSelecionado.quantidade = (int)this.txtQuantidade.Value;
 
             bool resp = controller.atualizar(produtoSelecionado);

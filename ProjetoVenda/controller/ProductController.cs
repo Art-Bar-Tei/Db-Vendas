@@ -17,8 +17,8 @@ namespace ProjetoVenda.controller
 
         public bool createProduct(Product produto)
         {
-            int cod_funcionario = Session.userAuth.cod_funcionario;
-            produto.cod_funcionario = cod_funcionario;
+            int id_funcionario = Session.userAuth.id_funcionario;
+            produto.id_funcionario = id_funcionario;
             produto.validar();
             // fazer o cadastro
             repository.createProduct(produto);
@@ -51,7 +51,7 @@ namespace ProjetoVenda.controller
 
         public bool excluir(Product product)
         {
-            return repository.excluir(product.cod_produto);
+            return repository.excluir(product.id_produto);
         }
 
         

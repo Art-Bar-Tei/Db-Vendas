@@ -13,8 +13,8 @@ namespace ProjetoVenda.repository
         private Employee map(MySqlDataReader reader)
         {
             return new Employee
-            {
-                cod_funcionario = reader.GetInt32("cod_funcionario"),
+            { 
+                id_funcionario = reader.IsDBNull(reader.GetOrdinal("id_funcionario")) ? 0 : reader.GetInt32("id_funcionario"),
                 nome = reader.GetString("nome"),
                 usuario = reader.GetString("usuario"),
                 senha = reader.GetString("senha"),
@@ -24,8 +24,24 @@ namespace ProjetoVenda.repository
                 numero = reader.GetString("numero"),
                 complemento = (reader.IsDBNull(reader.GetOrdinal("complemento")))
                     ? null : reader.GetString("complemento"),
-                cep = reader.GetString("cep")
+                cep = reader.GetString("cep"),
+                adm = reader.GetBoolean("adm")
             };
+
+        }
+        public List<Employee> getFuncionarios()
+        {
+            using MySqlConnection connector = Database.GetConnection();
+            string sql = "SELECT * FROM funcionario";
+            using MySqlCommand cmd = new MySqlCommand(sql, connector);
+            using var reader = cmd.ExecuteReader();
+
+            List<Employee> list = new List<Employee>();
+            while (reader.Read())
+            {
+                list.Add(map(reader));
+            }
+            return list;
         }
 
         public Employee? getByUsername(string username)
@@ -46,9 +62,9 @@ namespace ProjetoVenda.repository
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = @"INSERT INTO funcionario
-                (nome, usuario, senha, telefone, rua, numero, complemento, cep) 
+                (nome, usuario, senha, telefone, rua, numero, complemento, cep, adm) 
                 VALUES 
-                (@nome, @usuario, @senha, @telefone, @rua, @numero, @complemento, @cep)";
+                (@nome, @usuario, @senha, @telefone, @rua, @numero, @complemento, @cep, @adm)";
             using MySqlCommand cmd = new MySqlCommand(sql, connector);
             cmd.Parameters.AddWithValue("@nome", employee.nome);
             cmd.Parameters.AddWithValue("@usuario", employee.usuario);
@@ -58,6 +74,8 @@ namespace ProjetoVenda.repository
             cmd.Parameters.AddWithValue("@numero", employee.numero);
             cmd.Parameters.AddWithValue("@complemento", employee.complemento);
             cmd.Parameters.AddWithValue("@cep", employee.cep);
+            cmd.Parameters.AddWithValue("@adm", employee.adm);
+
             cmd.ExecuteNonQuery();
             return (int)cmd.LastInsertedId;
         }

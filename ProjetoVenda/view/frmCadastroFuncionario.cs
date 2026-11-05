@@ -1,16 +1,22 @@
 ﻿using ProjetoVenda.controller;
+using ProjetoVenda.model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Policy;
 using System.Text;
 using System.Windows.Forms;
+using MySqlConnector;
 
 namespace ProjetoVenda.view
 {
     public partial class frmCadastroFuncionario : Form
     {
+        private object dgvFuncionarios;
+        private object dgvFuncionaios;
+
         public frmCadastroFuncionario()
         {
             InitializeComponent();
@@ -41,6 +47,7 @@ namespace ProjetoVenda.view
             string usuario = this.txtUsuario.Text;
             string senha = this.txtSenha.Text;
             string senha1 = this.txtSenha1.Text;
+            bool adm = (this.cbxADM.Text == "CLT") ? false : true;
 
             if (senha != senha1)
             {
@@ -52,11 +59,26 @@ namespace ProjetoVenda.view
                 return;
             }
 
+
+
             // chamar o controlador do usuario para cadastro
             EmployeeController controller = new EmployeeController();
 
-            bool resp = controller.createEmployee(nome, telefone, rua, numero, cep, 
-                complemento, usuario, senha);
+            Employee funcionario = new Employee
+            {
+                nome = nome,
+                telefone = telefone,
+                rua = rua,
+                numero = numero,
+                cep = cep,
+                complemento = complemento,
+                usuario = usuario,
+                senha = senha,
+                adm = adm
+
+            };
+
+            bool resp = controller.createEmployee(funcionario, funcionario);
 
             if (resp)
             {
@@ -75,6 +97,19 @@ namespace ProjetoVenda.view
 
 
 
+        }
+
+        private void frmCadastroFuncionario_Load(object sender, EventArgs e)
+        {
+            this.cbxADM.SelectedIndex = 0;
+            chamarFuncionarios();
+        }
+        private void chamarFuncionarios()
+        {
+            List<Employee> list = new EmployeeController().getFuncionariosl();
+
+            dgvFuncionario.DataSource = list;
+            dgvFuncionario.Columns["senha"].Visible = false;
         }
     }
 }

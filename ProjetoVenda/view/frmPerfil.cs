@@ -17,6 +17,7 @@ namespace ProjetoVenda.view
         public frmPerfil()
         {
             InitializeComponent();
+            controle = new EmployeeController();
         }
 
         private void frmPerfil_Load(object sender, EventArgs e)

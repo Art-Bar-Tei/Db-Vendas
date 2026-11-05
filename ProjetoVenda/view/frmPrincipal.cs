@@ -25,9 +25,16 @@ namespace ProjetoVenda.view
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            //string username = Session.username;
-            bool isAdmin = Session.isAdmin;
-            //this.lblUsername.Text = username;
+           bool adm = controller.usuarioADM();
+            if(adm)
+            {
+                this.btnCadFuncionario.Enabled = true;
+            }
+            else
+            {
+                this.btnCadFuncionario.Enabled = false;
+            }
+            
         }
 
         private void exibirFormulario(Form formulario)
@@ -44,6 +51,8 @@ namespace ProjetoVenda.view
             painelPrincipal.Controls.Add(formulario);
             formulario.Show();
         }
+
+
 
         private void btnCadFuncionario_Click(object sender, EventArgs e)
         {
@@ -67,7 +76,7 @@ namespace ProjetoVenda.view
 
         private void btnPerfil_Click(object sender, EventArgs e)
         {
-            frmLogin frm = new frmLogin();
+            frmPerfil frm = new frmPerfil();
             exibirFormulario(frm);
         }
     }

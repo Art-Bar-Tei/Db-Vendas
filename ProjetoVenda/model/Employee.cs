@@ -6,15 +6,17 @@ namespace ProjetoVenda.model
 {
     internal class Employee
     {
-        public int cod_funcionario;
-        public string nome;
-        public string usuario;
-        public string senha;
-        public string telefone;
-        public string? rua;
-        public string numero;
-        public string? complemento;
-        public string cep;
+        public int id_funcionario{ get; set; }
+        public string nome{ get; set; }
+        public string usuario{ get; set; }
+        public string senha{ get; set; }
+        public string telefone{ get; set; }
+        public string? rua{ get; set; } 
+        public string numero{ get; set; }
+        public string? complemento{ get; set; }
+        public string cep{ get; set; }
+
+        public bool adm{ get; set; }
 
     }
 }

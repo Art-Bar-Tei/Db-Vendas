@@ -13,8 +13,8 @@ namespace ProjetoVenda.repository
         {
             return new Product
             {
-                cod_produto = reader.GetInt32("cod_produto"),
-                cod_funcionario = reader.GetInt32("cod_funcionario"),
+                id_produto = reader.GetInt32("id_produto"),
+                id_funcionario = reader.GetInt32("id_funcionario"),
                 nome = reader.GetString("nome"),
                 marca = reader.GetString("marca"),
                 preco = reader.GetDouble("preco"),
@@ -27,11 +27,11 @@ namespace ProjetoVenda.repository
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = @"INSERT INTO produto
-                (cod_funcionario, nome, marca, preco, quantidade) 
+                (id_funcionario, nome, marca, preco, quantidade) 
                 VALUES 
-                (@cod_funcionario, @nome, @marca, @preco, @quantidade)";
+                (@id_funcionario, @nome, @marca, @preco, @quantidade)";
             using MySqlCommand cmd = new MySqlCommand(sql, connector);
-            cmd.Parameters.AddWithValue("@cod_funcionario", product.cod_funcionario);
+            cmd.Parameters.AddWithValue("@id_funcionario", product.id_funcionario);
             cmd.Parameters.AddWithValue("@nome", product.nome);
             cmd.Parameters.AddWithValue("@marca", product.marca);
             cmd.Parameters.AddWithValue("@preco", product.preco);
@@ -86,9 +86,9 @@ namespace ProjetoVenda.repository
             using MySqlConnection connector = Database.GetConnection();
             string sql = @"UPDATE produto SET
                     nome = @nome, marca = @marca, preco = @preco, quantidade = @quantidade
-                WHERE cod_produto = @cod_produto";
+                WHERE id_produto = @id_produto";
             using MySqlCommand cmd = new MySqlCommand(sql, connector);
-            cmd.Parameters.AddWithValue("@cod_produto", produto.cod_produto);
+            cmd.Parameters.AddWithValue("@id_produto", produto.id_produto);
             cmd.Parameters.AddWithValue("@nome", produto.nome);
             cmd.Parameters.AddWithValue("@marca", produto.marca);
             cmd.Parameters.AddWithValue("@preco", produto.preco);
@@ -96,12 +96,12 @@ namespace ProjetoVenda.repository
             return cmd.ExecuteNonQuery() > 0;
         }
 
-        public bool excluir(int cod_produto)
+        public bool excluir(int id_produto)
         {
             using MySqlConnection connector = Database.GetConnection();
-            string sql = @"DELETE FROM produto WHERE cod_produto = @cod_produto";
+            string sql = @"DELETE FROM produto WHERE id_produto = @id_produto";
             using MySqlCommand cmd = new MySqlCommand(sql, connector);
-            cmd.Parameters.AddWithValue("@cod_produto", cod_produto);
+            cmd.Parameters.AddWithValue("@id_produto", id_produto);
             return cmd.ExecuteNonQuery() > 0;
         }
 
