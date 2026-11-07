@@ -33,11 +33,14 @@
             btnCadFuncionario = new Button();
             btnCadProduto = new Button();
             panel2 = new Panel();
+            btnCadVendas = new Button();
             btnPerfil = new Button();
             btnSair = new Button();
             panel1 = new Panel();
+            lblTitulo = new Label();
             painelPrincipal = new Panel();
             panel2.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // lblUsername
@@ -71,6 +74,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(btnCadVendas);
             panel2.Controls.Add(btnPerfil);
             panel2.Controls.Add(btnSair);
             panel2.Controls.Add(btnCadProduto);
@@ -82,11 +86,21 @@
             panel2.Size = new Size(192, 710);
             panel2.TabIndex = 4;
             // 
+            // btnCadVendas
+            // 
+            btnCadVendas.Location = new Point(29, 368);
+            btnCadVendas.Name = "btnCadVendas";
+            btnCadVendas.Size = new Size(104, 73);
+            btnCadVendas.TabIndex = 5;
+            btnCadVendas.Text = "Cadastrar Venda";
+            btnCadVendas.UseVisualStyleBackColor = true;
+            btnCadVendas.Click += btnCadVendas_Click;
+            // 
             // btnPerfil
             // 
-            btnPerfil.Location = new Point(29, 364);
+            btnPerfil.Location = new Point(29, 559);
             btnPerfil.Name = "btnPerfil";
-            btnPerfil.Size = new Size(104, 73);
+            btnPerfil.Size = new Size(104, 44);
             btnPerfil.TabIndex = 4;
             btnPerfil.Text = "Acessar perfil";
             btnPerfil.UseVisualStyleBackColor = true;
@@ -104,11 +118,23 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lblTitulo);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(192, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(817, 80);
             panel1.TabIndex = 5;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.Dock = DockStyle.Fill;
+            lblTitulo.Font = new Font("Segoe UI", 25F);
+            lblTitulo.Location = new Point(0, 0);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(817, 80);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "Titulo da Pagina";
+            lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // painelPrincipal
             // 
@@ -132,6 +158,7 @@
             Load += frmPrincipal_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -145,5 +172,7 @@
         private Panel painelPrincipal;
         private Button btnSair;
         private Button btnPerfil;
+        private Button btnCadVendas;
+        private Label lblTitulo;
     }
 }

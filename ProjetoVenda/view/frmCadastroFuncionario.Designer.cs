@@ -166,7 +166,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCadastroFuncionario";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Cadastro Funcionario";
+            Text = "Cadastro de Funcionario";
             Load += frmCadastroFuncionario_Load;
             ((System.ComponentModel.ISupportInitialize)dgvFuncionario).EndInit();
             ResumeLayout(false);

@@ -170,6 +170,7 @@
             // 
             // txtComplemento
             // 
+            txtComplemento.Cursor = Cursors.No;
             txtComplemento.Location = new Point(37, 319);
             txtComplemento.Multiline = true;
             txtComplemento.Name = "txtComplemento";
@@ -205,7 +206,7 @@
             Controls.Add(lblNome);
             Controls.Add(label1);
             Name = "frmPerfil";
-            Text = "frmPerfil";
+            Text = "Perfil";
             Load += frmPerfil_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
