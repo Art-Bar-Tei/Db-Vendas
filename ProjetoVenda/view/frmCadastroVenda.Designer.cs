@@ -33,7 +33,9 @@
             lblQuantidade = new Label();
             nunQuantidade = new NumericUpDown();
             dgvCarrinho = new DataGridView();
-            btn = new Button();
+            btnAdicionar = new Button();
+            lblPrecoTotal = new Label();
+            btnCadastrar = new Button();
             ((System.ComponentModel.ISupportInitialize)nunQuantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCarrinho).BeginInit();
             SuspendLayout();
@@ -87,21 +89,46 @@
             dgvCarrinho.Size = new Size(861, 403);
             dgvCarrinho.TabIndex = 4;
             // 
-            // btn
+            // btnAdicionar
             // 
-            btn.Location = new Point(637, 97);
-            btn.Name = "btn";
-            btn.Size = new Size(125, 31);
-            btn.TabIndex = 5;
-            btn.Text = "Concluir";
-            btn.UseVisualStyleBackColor = true;
+            btnAdicionar.Location = new Point(637, 97);
+            btnAdicionar.Name = "btnAdicionar";
+            btnAdicionar.Size = new Size(125, 31);
+            btnAdicionar.TabIndex = 5;
+            btnAdicionar.Text = "Atualizar";
+            btnAdicionar.UseVisualStyleBackColor = true;
+            btnAdicionar.Click += btnAdicionar_Click;
+            // 
+            // lblPrecoTotal
+            // 
+            lblPrecoTotal.AutoSize = true;
+            lblPrecoTotal.Font = new Font("Segoe UI", 26F);
+            lblPrecoTotal.Location = new Point(455, 540);
+            lblPrecoTotal.Name = "lblPrecoTotal";
+            lblPrecoTotal.Size = new Size(201, 47);
+            lblPrecoTotal.TabIndex = 6;
+            lblPrecoTotal.Text = "Total Venda";
+            lblPrecoTotal.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // btnCadastrar
+            // 
+            btnCadastrar.Font = new Font("Segoe UI", 20F);
+            btnCadastrar.Location = new Point(290, 617);
+            btnCadastrar.Name = "btnCadastrar";
+            btnCadastrar.Size = new Size(288, 65);
+            btnCadastrar.TabIndex = 7;
+            btnCadastrar.Text = "Cadastrar";
+            btnCadastrar.UseVisualStyleBackColor = true;
+            btnCadastrar.Click += btnCadastrar_Click;
             // 
             // frmCadastroVenda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(882, 538);
-            Controls.Add(btn);
+            ClientSize = new Size(882, 694);
+            Controls.Add(btnCadastrar);
+            Controls.Add(lblPrecoTotal);
+            Controls.Add(btnAdicionar);
             Controls.Add(dgvCarrinho);
             Controls.Add(nunQuantidade);
             Controls.Add(lblQuantidade);
@@ -128,6 +155,8 @@
         private Label lblQuantidade;
         private NumericUpDown nunQuantidade;
         private DataGridView dgvCarrinho;
-        private Button btn;
+        private Button btnAdicionar;
+        private Label lblPrecoTotal;
+        private Button btnCadastrar;
     }
 }

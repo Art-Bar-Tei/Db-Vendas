@@ -17,7 +17,7 @@ namespace ProjetoVenda.repository
                 id_funcionario = reader.GetInt32("id_funcionario"),
                 nome = reader.GetString("nome"),
                 marca = reader.GetString("marca"),
-                preco = reader.GetDouble("preco"),
+                preco = reader.GetInt32("preco"),
                 quantidade = reader.GetInt32("quantidade"),
                 data_registro = reader.GetDateTime("data_registro")
             };

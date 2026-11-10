@@ -10,9 +10,11 @@ namespace ProjetoVenda.model
         public int id_funcionario { get; set; }
         public string nome { get; set; }
         public string marca { get; set; }
-        public double preco { get; set; }
+        public int preco { get; set; }
         public int quantidade { get; set; }
         public DateTime data_registro { get; set; }
+
+        public decimal valorReal => this.preco / 100m;
 
         public void validar()
         {

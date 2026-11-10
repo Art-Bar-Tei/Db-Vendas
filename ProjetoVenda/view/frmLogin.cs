@@ -22,8 +22,8 @@ namespace ProjetoVenda.view
             string usuario = this.txtUsuario.Text;
             string senha = this.txtSenha.Text;
 
-            
-            if( EmployeeController.login(usuario, senha))
+
+            if (EmployeeController.login(usuario, senha))
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -37,7 +37,12 @@ namespace ProjetoVenda.view
                     MessageBoxIcon.Error);
             }
 
-            
+
+
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
 
         }
     }

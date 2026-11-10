@@ -29,7 +29,7 @@ namespace ProjetoVenda.view
         {
             string nome = this.txtNome.Text;
             string marca = this.txtMarca.Text;
-            double preco = Convert.ToDouble(this.txtPreco.Text);
+            int preco = Convert.ToInt32(this.txtPreco.Text)/100;
             int quantidade = Convert.ToInt32(this.txtQuantidade.Text);
 
             // encapsulado os dados
@@ -104,7 +104,7 @@ namespace ProjetoVenda.view
             // evento de atualizar
             produtoSelecionado.nome = this.txtNome.Text;
             produtoSelecionado.marca = this.txtMarca.Text;
-            produtoSelecionado.preco = Convert.ToDouble(this.txtPreco.Text);
+            produtoSelecionado.preco = (int)(Convert.ToInt32(this.txtPreco.Text) /100);
             produtoSelecionado.quantidade = (int)this.txtQuantidade.Value;
 
             bool resp = controller.atualizar(produtoSelecionado);
@@ -142,7 +142,7 @@ namespace ProjetoVenda.view
 
             this.txtNome.Text = produto.nome;
             this.txtMarca.Text = produto.marca;
-            this.txtPreco.Text = produto.preco.ToString();
+            this.txtPreco.Text = (produto.preco / 100.0).ToString("F2");
             this.txtQuantidade.Value = produto.quantidade;
             produtoSelecionado = produto;
             this.btnAtualizar.Enabled = true;
