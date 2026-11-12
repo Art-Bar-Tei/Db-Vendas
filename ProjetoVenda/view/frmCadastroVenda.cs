@@ -17,12 +17,14 @@ namespace ProjetoVenda.view
         private List<Item> carrinho = new List<Item>();
 
         private ProductController producoControle;
+        private VendaControle vendaControle;
         public frmCadastroVenda()
         {
             InitializeComponent();
 
 
             producoControle = new ProductController();
+            vendaControle = new VendaControle();
         }
         private void configurarCarrinho()
         {
@@ -75,8 +77,7 @@ namespace ProjetoVenda.view
 
         public void atualizarCarrinho()
         {
-            this.dgvCarrinho.DataSource = null;
-            this.dgvCarrinho.DataSource = this.carrinho;
+            this.dgvCarrinho.DataSource = this.carrinho.ToList();
             this.btnCadastrar.Enabled = this.carrinho.Count() > 0;
             decimal total = this.carrinho.Sum(item => item.subTotal);
             this.lblPrecoTotal.Text = $"Total Venda: R$ {total:C2}";
@@ -95,7 +96,7 @@ namespace ProjetoVenda.view
             this.lblQuantidade.Text = $"Quantidade Disponivel: {product.quantidade}";
             this.nunQuantidade.Maximum = product.quantidade;
             this.nunQuantidade.Value = (this.nunQuantidade.Maximum > 0) ? 1 : 0;
-            
+
 
         }
 
@@ -138,13 +139,33 @@ namespace ProjetoVenda.view
             {
                 return;
             }
-            carrinho.Clear();
-            frmCadastroVenda_Load(this, EventArgs.Empty);
-            MessageBox.Show
-                ("Venda cadastrada com sucesso!", "Sucesso",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-    }
+            try
+            {
+                bool resposta = vendaControle.cadastrarVenda(this.carrinho);
+                if (resposta)
+                {
+                    carrinho.Clear();
+                    frmCadastroVenda_Load(this, EventArgs.Empty);
+                    MessageBox.Show
+                        ("Venda cadastrada com sucesso!", "Sucesso",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show
+                        ("Erro ao cadastrar venda!", "Erro",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show
+                    ($"Erro ao cadastrar venda: {ex.Message}", "Erro",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+    }
 }
 

@@ -29,7 +29,7 @@ namespace ProjetoVenda.view
         {
             string nome = this.txtNome.Text;
             string marca = this.txtMarca.Text;
-            int preco = Convert.ToInt32(this.txtPreco.Text)/100;
+            int preco = Convert.ToInt32(this.txtPreco.Text);
             int quantidade = Convert.ToInt32(this.txtQuantidade.Text);
 
             // encapsulado os dados
@@ -142,7 +142,7 @@ namespace ProjetoVenda.view
 
             this.txtNome.Text = produto.nome;
             this.txtMarca.Text = produto.marca;
-            this.txtPreco.Text = (produto.preco / 100.0).ToString("F2");
+            this.txtPreco.Text = produto.preco.ToString();
             this.txtQuantidade.Value = produto.quantidade;
             produtoSelecionado = produto;
             this.btnAtualizar.Enabled = true;

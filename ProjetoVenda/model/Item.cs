@@ -8,6 +8,7 @@ namespace ProjetoVenda.model
     {
         internal string nomeProduto;
         internal string marcaProduto;
+        internal object produto;
 
         public int id_item { get; set; }
         public int id_produto { get; set; }
