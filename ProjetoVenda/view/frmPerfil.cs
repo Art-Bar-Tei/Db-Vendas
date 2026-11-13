@@ -12,12 +12,12 @@ namespace ProjetoVenda.view
 {
     public partial class frmPerfil : Form
     {
-        private EmployeeController controle;
-        private Employee? funcionario;
+        private FuncionarioControle controle;
+        private Funcionario? funcionario;
         public frmPerfil()
         {
             InitializeComponent();
-            controle = new EmployeeController();
+            controle = new FuncionarioControle();
         }
 
         private void frmPerfil_Load(object sender, EventArgs e)

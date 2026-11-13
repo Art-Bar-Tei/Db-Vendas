@@ -9,9 +9,9 @@ namespace ProjetoVenda.repository
 {
     internal class ProductRepository
     {
-        private Product map(MySqlDataReader reader)
+        private Produto map(MySqlDataReader reader)
         {
-            return new Product
+            return new Produto
             {
                 id_produto = reader.GetInt32("id_produto"),
                 id_funcionario = reader.GetInt32("id_funcionario"),
@@ -23,7 +23,7 @@ namespace ProjetoVenda.repository
             };
         }
 
-        public int createProduct(Product product)
+        public int createProduct(Produto product)
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = @"INSERT INTO produto
@@ -40,14 +40,14 @@ namespace ProjetoVenda.repository
             return (int)cmd.LastInsertedId;
         }
 
-        public List<Product> getAll()
+        public List<Produto> getAll()
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = "SELECT * FROM produto";
             using MySqlCommand cmd = new MySqlCommand(sql, connector);
             using var reader = cmd.ExecuteReader();
 
-            List<Product> list = new List<Product>();
+            List<Produto> list = new List<Produto>();
             while (reader.Read())
             {
                 list.Add( map(reader) );
@@ -55,7 +55,7 @@ namespace ProjetoVenda.repository
             return list;
         }
 
-        public List<Product> listarPorPagina(int qtd, int pagina)
+        public List<Produto> listarPorPagina(int qtd, int pagina)
         {
             int offset = qtd * (pagina - 1);
             using MySqlConnection connector = Database.GetConnection();
@@ -65,7 +65,7 @@ namespace ProjetoVenda.repository
             cmd.Parameters.AddWithValue("@offset", offset);
             using var reader = cmd.ExecuteReader();
 
-            List<Product> list = new List<Product>();
+            List<Produto> list = new List<Produto>();
             while (reader.Read())
             {
                 list.Add(map(reader));
@@ -81,7 +81,7 @@ namespace ProjetoVenda.repository
             return Convert.ToInt32(cmd.ExecuteScalar());
         }
 
-        public bool atualizar(Product produto)
+        public bool atualizar(Produto produto)
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = @"UPDATE produto SET

@@ -28,7 +28,7 @@ namespace ProjetoVenda.repository
                     int quantidadeDisponivel = reader.GetInt32("quantidade");
                     if (quantidadeDisponivel < item.quantidade)
                     {
-                        throw new Exception($"Quantidade insuficiente para o produto {item.nomeProduto}");
+                        throw new Exception($"Quantidade insuficiente para o produto {item.nome}");
                     }
                 }
 
@@ -52,7 +52,7 @@ namespace ProjetoVenda.repository
                     int linhasAlteradas = cmdItem.ExecuteNonQuery();
                     if (linhasAlteradas != 1)
                     {
-                        throw new Exception($"Erro ao cadastrar o pro {item.nomeProduto}");
+                        throw new Exception($"Erro ao cadastrar o pro {item.nome}");
                     }
                     string sqlUpdateQuantidade = @"UPDATE produto SET quantidade = quantidade - @quantidade 
                                                WHERE id_produto = @id_produto";
@@ -62,7 +62,7 @@ namespace ProjetoVenda.repository
                     int linhasAtualizadas = cmdUpdateQuantidade.ExecuteNonQuery();
                     if (linhasAtualizadas != 1)
                     {
-                        throw new Exception($"Erro ao atualizar a quantidade do produto {item.nomeProduto}");
+                        throw new Exception($"Erro ao atualizar a quantidade do produto {item.nome}");
                     }
                     cmdUpdateQuantidade.ExecuteNonQuery();
                 }

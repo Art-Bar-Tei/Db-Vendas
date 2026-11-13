@@ -133,7 +133,7 @@
             dgvFuncionario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvFuncionario.Location = new Point(12, 321);
             dgvFuncionario.Name = "dgvFuncionario";
-            dgvFuncionario.Size = new Size(621, 359);
+            dgvFuncionario.Size = new Size(984, 359);
             dgvFuncionario.TabIndex = 10;
             // 
             // cbxADM
@@ -150,7 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(727, 681);
+            ClientSize = new Size(1186, 681);
             Controls.Add(cbxADM);
             Controls.Add(dgvFuncionario);
             Controls.Add(txtSenha1);

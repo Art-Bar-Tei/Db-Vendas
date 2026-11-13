@@ -88,6 +88,7 @@
             dgvCarrinho.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCarrinho.Size = new Size(861, 403);
             dgvCarrinho.TabIndex = 4;
+            dgvCarrinho.CellContentClick += dgvCarrinho_CellContentClick;
             // 
             // btnAdicionar
             // 

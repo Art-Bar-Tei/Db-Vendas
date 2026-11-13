@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetoVenda.model
 {
-    internal class Employee
+    internal class Funcionario
     {
         public int id_funcionario{ get; set; }
         public string nome{ get; set; }

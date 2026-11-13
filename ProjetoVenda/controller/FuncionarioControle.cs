@@ -7,16 +7,16 @@ using ProjetoVenda.repository;
 
 namespace ProjetoVenda.controller
 {
-    internal class EmployeeController
+    internal class FuncionarioControle
     {
         private EmployeeRepository repository;
 
-        public EmployeeController()
+        public FuncionarioControle()
         {
             repository = new EmployeeRepository();
         }
 
-        public List<Employee> getFuncionariosl()
+        public List<Funcionario> getFuncionariosl()
         {
             return repository.getFuncionarios();
         }
@@ -24,7 +24,7 @@ namespace ProjetoVenda.controller
         public static bool login(string username, string password)
         {
             EmployeeRepository respository = new EmployeeRepository();
-            Employee? resp = respository.getByUsername(username);
+            Funcionario? resp = respository.getByUsername(username);
             if (resp == null)
             {
                 return false;
@@ -45,19 +45,19 @@ namespace ProjetoVenda.controller
                 return false;
             }
             // gravar os dados do usuario logado!!!!
-            Session.userAuth = resp;
+            Sessao.userAuth = resp;
             return true;
 
         }
 
 
-        public bool createEmployee(Employee funcionario, Employee funcionarios)
+        public bool createEmployee(Funcionario funcionario, Funcionario funcionarios)
         {
 
             // fazer verificação se o usuario nao existe
             // solicitar ao respository se o usuario existe
             EmployeeRepository respository = new EmployeeRepository();
-            Employee? resp = respository.getByUsername(funcionarios.usuario);
+            Funcionario? resp = respository.getByUsername(funcionarios.usuario);
             if (resp != null)
             {
                 return false;
@@ -70,19 +70,19 @@ namespace ProjetoVenda.controller
 
         public void deslogar()
         {
-            Session.userAuth = null;
+            Sessao.userAuth = null;
         }
-        public Employee? usuarioAutenticado()
+        public Funcionario? usuarioAutenticado()
         {
-            return Session.userAuth;
+            return Sessao.userAuth;
         }
         public bool usuarioADM()
         {
-            if (Session.userAuth == null)
+            if (Sessao.userAuth == null)
             {
                 return false;
             }
-            return Session.userAuth.adm;
+            return Sessao.userAuth.adm;
         }
     }
 }

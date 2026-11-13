@@ -62,9 +62,9 @@ namespace ProjetoVenda.view
 
 
             // chamar o controlador do usuario para cadastro
-            EmployeeController controller = new EmployeeController();
+            FuncionarioControle controller = new FuncionarioControle();
 
-            Employee funcionario = new Employee
+            Funcionario funcionario = new Funcionario
             {
                 nome = nome,
                 telefone = telefone,
@@ -106,7 +106,7 @@ namespace ProjetoVenda.view
         }
         private void chamarFuncionarios()
         {
-            List<Employee> list = new EmployeeController().getFuncionariosl();
+            List<Funcionario> list = new FuncionarioControle().getFuncionariosl();
 
             dgvFuncionario.DataSource = list;
             dgvFuncionario.Columns["senha"].Visible = false;

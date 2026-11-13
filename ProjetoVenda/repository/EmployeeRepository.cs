@@ -10,9 +10,9 @@ namespace ProjetoVenda.repository
 {
     internal class EmployeeRepository
     {
-        private Employee map(MySqlDataReader reader)
+        private Funcionario map(MySqlDataReader reader)
         {
-            return new Employee
+            return new Funcionario
             { 
                 id_funcionario = reader.IsDBNull(reader.GetOrdinal("id_funcionario")) ? 0 : reader.GetInt32("id_funcionario"),
                 nome = reader.GetString("nome"),
@@ -29,14 +29,14 @@ namespace ProjetoVenda.repository
             };
 
         }
-        public List<Employee> getFuncionarios()
+        public List<Funcionario> getFuncionarios()
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = "SELECT * FROM funcionario";
             using MySqlCommand cmd = new MySqlCommand(sql, connector);
             using var reader = cmd.ExecuteReader();
 
-            List<Employee> list = new List<Employee>();
+            List<Funcionario> list = new List<Funcionario>();
             while (reader.Read())
             {
                 list.Add(map(reader));
@@ -44,7 +44,7 @@ namespace ProjetoVenda.repository
             return list;
         }
 
-        public Employee? getByUsername(string username)
+        public Funcionario? getByUsername(string username)
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = "SELECT * FROM funcionario WHERE usuario = @username";
@@ -58,7 +58,7 @@ namespace ProjetoVenda.repository
             return null;
         }
 
-        public int createEmployee(Employee employee)
+        public int createEmployee(Funcionario employee)
         {
             using MySqlConnection connector = Database.GetConnection();
             string sql = @"INSERT INTO funcionario

@@ -12,13 +12,13 @@ namespace ProjetoVenda.view
 {
     public partial class frmPrincipal : Form
     {
-        private EmployeeController controller;
+        private FuncionarioControle controller;
 
         public frmPrincipal()
         {
             InitializeComponent();
-            controller = new EmployeeController();
-            Employee? funcionario = controller.usuarioAutenticado();
+            controller = new FuncionarioControle();
+            Funcionario? funcionario = controller.usuarioAutenticado();
             string nome = (funcionario != null) ? funcionario.nome : "";
             this.Text += $" - {nome}";
         }

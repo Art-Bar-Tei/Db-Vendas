@@ -23,7 +23,7 @@ namespace ProjetoVenda.view
             string senha = this.txtSenha.Text;
 
 
-            if (EmployeeController.login(usuario, senha))
+            if (FuncionarioControle.login(usuario, senha))
             {
                 this.DialogResult = DialogResult.OK;
                 this.Close();

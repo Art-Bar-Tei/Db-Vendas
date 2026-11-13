@@ -9,17 +9,17 @@ namespace ProjetoVenda.controller
     internal class VendaControle
     {
 
-        EmployeeController EmployeeController;
+        FuncionarioControle EmployeeController;
         VendaRepositorio VendaRepositorio;
         public VendaControle()
         {
-            EmployeeController = new EmployeeController();
+            EmployeeController = new FuncionarioControle();
             VendaRepositorio = new VendaRepositorio();
         }
 
         public bool cadastrarVenda(List <Item> itens)
         {
-            Employee? funcionarioLogado = EmployeeController.usuarioAutenticado();
+            Funcionario? funcionarioLogado = EmployeeController.usuarioAutenticado();
             if(funcionarioLogado == null)
             {
                 throw new Exception("Funcionario não autenticado");

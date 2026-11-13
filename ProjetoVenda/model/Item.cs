@@ -6,10 +6,6 @@ namespace ProjetoVenda.model
 {
     internal class Item
     {
-        internal string nomeProduto;
-        internal string marcaProduto;
-        internal object produto;
-
         public int id_item { get; set; }
         public int id_produto { get; set; }
         public int quantidade { get; set; }

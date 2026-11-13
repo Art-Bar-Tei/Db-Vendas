@@ -12,8 +12,8 @@ namespace ProjetoVenda.view
 {
     public partial class frmCadastroProduto : Form
     {
-        private ProductController controller;
-        private Product? produtoSelecionado;
+        private ProdutoControle controller;
+        private Produto? produtoSelecionado;
         private int totalDePaginas = 5;
         private int paginaAtual = 1;
         private int totalPorPagina = 5;
@@ -22,7 +22,7 @@ namespace ProjetoVenda.view
         public frmCadastroProduto()
         {
             InitializeComponent();
-            controller = new ProductController();
+            controller = new ProdutoControle();
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -33,7 +33,7 @@ namespace ProjetoVenda.view
             int quantidade = Convert.ToInt32(this.txtQuantidade.Text);
 
             // encapsulado os dados
-            Product product = new Product
+            Produto product = new Produto
             {
                 nome = nome,
                 marca = marca,
@@ -85,7 +85,7 @@ namespace ProjetoVenda.view
             }
             atualizarLblPagina();
 
-            List<Product> list = controller.listarPorPagina(totalPorPagina, paginaAtual);
+            List<Produto> list = controller.listarPorPagina(totalPorPagina, paginaAtual);
             this.dgvProdutos.DataSource = list;
             this.dgvProdutos.Columns["id_funcionario"].Visible = false;
 
@@ -138,7 +138,7 @@ namespace ProjetoVenda.view
                 return;
             }
             DataGridViewRow linha = this.dgvProdutos.Rows[e.RowIndex];
-            Product? produto = linha.DataBoundItem as Product;
+            Produto? produto = linha.DataBoundItem as Produto;
 
             this.txtNome.Text = produto.nome;
             this.txtMarca.Text = produto.marca;

@@ -6,18 +6,18 @@ using System.Text;
 
 namespace ProjetoVenda.controller
 {
-    internal class ProductController
+    internal class ProdutoControle
     {
         private ProductRepository repository;
 
-        public ProductController()
+        public ProdutoControle()
         {
             repository = new ProductRepository();
         }
 
-        public bool createProduct(Product produto)
+        public bool createProduct(Produto produto)
         {
-            int id_funcionario = Session.userAuth.id_funcionario;
+            int id_funcionario = Sessao.userAuth.id_funcionario;
             produto.id_funcionario = id_funcionario;
             produto.validar();
             // fazer o cadastro
@@ -26,12 +26,12 @@ namespace ProjetoVenda.controller
             return true;
         }
 
-        public List<Product> ListarProdutos()
+        public List<Produto> ListarProdutos()
         {
             return repository.getAll();
         }
 
-        public List<Product> listarPorPagina(int qtd, int pagina)
+        public List<Produto> listarPorPagina(int qtd, int pagina)
         {
             return repository.listarPorPagina(qtd, pagina);
         }
@@ -44,12 +44,12 @@ namespace ProjetoVenda.controller
         }
 
 
-        public bool atualizar(Product product)
+        public bool atualizar(Produto product)
         {
             return repository.atualizar(product);
         }
 
-        public bool excluir(Product product)
+        public bool excluir(Produto product)
         {
             return repository.excluir(product.id_produto);
         }

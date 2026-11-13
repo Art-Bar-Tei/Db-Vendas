@@ -5,9 +5,9 @@ using ProjetoVenda.model;
 
 namespace ProjetoVenda.controller
 {
-    internal static class Session
+    internal static class Sessao
     {
-        public static Employee? userAuth;
+        public static Funcionario? userAuth;
 
         public static bool isAdmin = false;
 

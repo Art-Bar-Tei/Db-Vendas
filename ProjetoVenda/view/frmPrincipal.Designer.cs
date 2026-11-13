@@ -122,7 +122,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(192, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(817, 80);
+            panel1.Size = new Size(1098, 80);
             panel1.TabIndex = 5;
             // 
             // lblTitulo
@@ -131,7 +131,7 @@
             lblTitulo.Font = new Font("Segoe UI", 25F);
             lblTitulo.Location = new Point(0, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(817, 80);
+            lblTitulo.Size = new Size(1098, 80);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Titulo da Pagina";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -141,14 +141,14 @@
             painelPrincipal.Dock = DockStyle.Fill;
             painelPrincipal.Location = new Point(192, 80);
             painelPrincipal.Name = "painelPrincipal";
-            painelPrincipal.Size = new Size(817, 630);
+            painelPrincipal.Size = new Size(1098, 630);
             painelPrincipal.TabIndex = 6;
             // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1009, 710);
+            ClientSize = new Size(1290, 710);
             Controls.Add(painelPrincipal);
             Controls.Add(panel1);
             Controls.Add(panel2);
