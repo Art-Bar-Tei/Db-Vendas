@@ -43,7 +43,7 @@ namespace ProjetoVenda.view
             // Enviar os dados para a controller
             try
             {
-                bool resp = controller.createProduct(product);
+                bool resp = controller.criarProduto(product);
                 if (resp)
                 {
                     MessageBox.Show("Produto Cadastrado Com Sucesso",

@@ -78,7 +78,7 @@ namespace ProjetoVenda.view
 
             };
 
-            bool resp = controller.createEmployee(funcionario, funcionario);
+            bool resp = controller.CriarFuncionario(funcionario, funcionario);
 
             if (resp)
             {
@@ -106,7 +106,7 @@ namespace ProjetoVenda.view
         }
         private void chamarFuncionarios()
         {
-            List<Funcionario> list = new FuncionarioControle().getFuncionariosl();
+            List<Funcionario> list = new FuncionarioControle().pegarPorFuncionario();
 
             dgvFuncionario.DataSource = list;
             dgvFuncionario.Columns["senha"].Visible = false;

@@ -11,21 +11,21 @@ namespace ProjetoVenda.repository
     {
         public bool CadastrarVenda(Venda venda)
         {
-            using MySqlConnection conector = Database.GetConnection();
-            using MySqlTransaction transaction = conector.BeginTransaction();
+            using MySqlConnection conector = BancoDeDados.PegarConexao();
+            using MySqlTransaction transisao = conector.BeginTransaction();
             try
             {
                 foreach (var item in venda.itens.OrderBy(item => item.id_produto))
                 {
                     string sqlBloqueio = "SELECT * FROM produto WHERE id_produto = @id_produto FOR UPDATE";
-                    using var cmdBloqueio = new MySqlCommand(sqlBloqueio, conector, transaction);
+                    using var cmdBloqueio = new MySqlCommand(sqlBloqueio, conector, transisao);
                     cmdBloqueio.Parameters.AddWithValue("@id_produto", item.id_produto);
-                    using var reader = cmdBloqueio.ExecuteReader();
-                    if (!reader.Read())
+                    using var leitor = cmdBloqueio.ExecuteReader();
+                    if (!leitor.Read())
                     {
                         throw new Exception("Erro no registro!!!");
                     }
-                    int quantidadeDisponivel = reader.GetInt32("quantidade");
+                    int quantidadeDisponivel = leitor.GetInt32("quantidade");
                     if (quantidadeDisponivel < item.quantidade)
                     {
                         throw new Exception($"Quantidade insuficiente para o produto {item.nome}");
@@ -34,7 +34,7 @@ namespace ProjetoVenda.repository
 
                 string sqlVenda = @"INSERT INTO venda (id_funcionario) 
                                VALUES (@id_funcionario)";
-                using var cmdVenda = new MySqlCommand(sqlVenda, conector, transaction);
+                using var cmdVenda = new MySqlCommand(sqlVenda, conector, transisao);
                 cmdVenda.Parameters.AddWithValue("@id_funcionario", venda.id_funcionario);
                 cmdVenda.ExecuteNonQuery();
                 venda.id_venda = (int)cmdVenda.LastInsertedId;
@@ -44,7 +44,7 @@ namespace ProjetoVenda.repository
                 {
                     string sqlItem = @"INSERT INTO item (id_venda, id_produto)
                                    VALUES (@id_venda, @id_produto)";
-                    using MySqlCommand cmdItem = new MySqlCommand(sqlItem, conector, transaction);
+                    using MySqlCommand cmdItem = new MySqlCommand(sqlItem, conector, transisao);
                     cmdItem.Parameters.AddWithValue("@id_venda", venda.id_venda);
                     cmdItem.Parameters.AddWithValue("@id_produto", item.id_produto);
                     cmdItem.Parameters.AddWithValue("@quantidade", item.quantidade);
@@ -56,7 +56,7 @@ namespace ProjetoVenda.repository
                     }
                     string sqlUpdateQuantidade = @"UPDATE produto SET quantidade = quantidade - @quantidade 
                                                WHERE id_produto = @id_produto";
-                    using MySqlCommand cmdUpdateQuantidade = new MySqlCommand(sqlUpdateQuantidade, conector, transaction);
+                    using MySqlCommand cmdUpdateQuantidade = new MySqlCommand(sqlUpdateQuantidade, conector, transisao);
                     cmdUpdateQuantidade.Parameters.AddWithValue("@quantidade", item.quantidade);
                     cmdUpdateQuantidade.Parameters.AddWithValue("@id_produto", item.id_produto);
                     int linhasAtualizadas = cmdUpdateQuantidade.ExecuteNonQuery();
@@ -66,12 +66,12 @@ namespace ProjetoVenda.repository
                     }
                     cmdUpdateQuantidade.ExecuteNonQuery();
                 }
-                transaction.Commit();
+                transisao.Commit();
                 return true;
             }
             catch (Exception ex)
             {
-                transaction.Rollback();
+                transisao.Rollback();
                 throw ex;
                 return false;
             }

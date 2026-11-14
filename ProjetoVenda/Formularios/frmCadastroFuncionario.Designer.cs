@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCadastroFuncionario));
             txtNome = new TextBox();
             txtUsuario = new TextBox();
@@ -41,12 +42,14 @@
             txtSenha1 = new TextBox();
             dgvFuncionario = new DataGridView();
             cbxADM = new ComboBox();
+            imageList1 = new ImageList(components);
+            imageList2 = new ImageList(components);
             ((System.ComponentModel.ISupportInitialize)dgvFuncionario).BeginInit();
             SuspendLayout();
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(44, 44);
+            txtNome.Location = new Point(400, 46);
             txtNome.Name = "txtNome";
             txtNome.PlaceholderText = "Nome";
             txtNome.Size = new Size(219, 23);
@@ -54,7 +57,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(363, 44);
+            txtUsuario.Location = new Point(719, 46);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "usuario";
             txtUsuario.Size = new Size(195, 23);
@@ -62,7 +65,7 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(363, 94);
+            txtSenha.Location = new Point(719, 96);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
             txtSenha.PlaceholderText = "Senha";
@@ -71,7 +74,7 @@
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(44, 124);
+            txtTelefone.Location = new Point(400, 126);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.PlaceholderText = "Telefone";
             txtTelefone.Size = new Size(219, 23);
@@ -79,7 +82,7 @@
             // 
             // txtRua
             // 
-            txtRua.Location = new Point(44, 170);
+            txtRua.Location = new Point(400, 172);
             txtRua.Name = "txtRua";
             txtRua.PlaceholderText = "Rua";
             txtRua.Size = new Size(219, 23);
@@ -87,7 +90,7 @@
             // 
             // txtComplemento
             // 
-            txtComplemento.Location = new Point(44, 261);
+            txtComplemento.Location = new Point(400, 263);
             txtComplemento.Name = "txtComplemento";
             txtComplemento.PlaceholderText = "Complemento";
             txtComplemento.Size = new Size(219, 23);
@@ -95,7 +98,7 @@
             // 
             // txtNumero
             // 
-            txtNumero.Location = new Point(44, 222);
+            txtNumero.Location = new Point(400, 224);
             txtNumero.Name = "txtNumero";
             txtNumero.PlaceholderText = "Numero";
             txtNumero.Size = new Size(94, 23);
@@ -103,7 +106,7 @@
             // 
             // txtCep
             // 
-            txtCep.Location = new Point(163, 222);
+            txtCep.Location = new Point(519, 224);
             txtCep.Name = "txtCep";
             txtCep.PlaceholderText = "CEP";
             txtCep.Size = new Size(100, 23);
@@ -111,7 +114,7 @@
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(402, 246);
+            btnCadastrar.Location = new Point(758, 248);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(112, 50);
             btnCadastrar.TabIndex = 9;
@@ -121,7 +124,7 @@
             // 
             // txtSenha1
             // 
-            txtSenha1.Location = new Point(363, 140);
+            txtSenha1.Location = new Point(719, 142);
             txtSenha1.Name = "txtSenha1";
             txtSenha1.PasswordChar = '*';
             txtSenha1.PlaceholderText = "Confirmar Senha";
@@ -141,10 +144,23 @@
             cbxADM.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxADM.FormattingEnabled = true;
             cbxADM.Items.AddRange(new object[] { "CLT", "Patrão" });
-            cbxADM.Location = new Point(387, 200);
+            cbxADM.Location = new Point(743, 202);
             cbxADM.Name = "cbxADM";
             cbxADM.Size = new Size(152, 23);
             cbxADM.TabIndex = 11;
+            // 
+            // imageList1
+            // 
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageSize = new Size(16, 16);
+            imageList1.TransparentColor = Color.Transparent;
+            // 
+            // imageList2
+            // 
+            imageList2.ColorDepth = ColorDepth.Depth32Bit;
+            imageList2.ImageStream = (ImageListStreamer)resources.GetObject("imageList2.ImageStream");
+            imageList2.TransparentColor = Color.Transparent;
+            imageList2.Images.SetKeyName(0, "Foto.jpg");
             // 
             // frmCadastroFuncionario
             // 
@@ -187,5 +203,7 @@
         private TextBox txtSenha1;
         private DataGridView dgvFuncionario;
         private ComboBox cbxADM;
+        private ImageList imageList1;
+        private ImageList imageList2;
     }
 }

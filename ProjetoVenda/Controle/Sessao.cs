@@ -7,9 +7,9 @@ namespace ProjetoVenda.controller
 {
     internal static class Sessao
     {
-        public static Funcionario? userAuth;
+        public static Funcionario? usuarioAutenticado;
 
-        public static bool isAdmin = false;
+        public static bool eAdmin = false;
 
     }
 }

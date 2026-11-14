@@ -5,14 +5,14 @@ using System.Text;
 
 namespace ProjetoVenda.database
 {
-    internal static class Database
+    internal static class BancoDeDados
     {
-        private static string stringConnection;
+        private static string textoDeConexao;
 
 
-        static Database()
+        static BancoDeDados()
         {
-            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
+            MySqlConnectionStringBuilder construtor = new MySqlConnectionStringBuilder
             {
                 Server = "localhost",
                 Port = 3306,
@@ -20,12 +20,12 @@ namespace ProjetoVenda.database
                 UserID = "root",
                 Password = ""
             };
-            stringConnection = builder.ConnectionString;
+            textoDeConexao = construtor.ConnectionString;
         }
 
-        public static MySqlConnection GetConnection()
+        public static MySqlConnection PegarConexao()
         {
-            MySqlConnection connection = new MySqlConnection(stringConnection);
+            MySqlConnection connection = new MySqlConnection(textoDeConexao);
             try
             {
                 connection.Open();
