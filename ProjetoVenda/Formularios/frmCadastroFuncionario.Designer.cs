@@ -49,7 +49,7 @@
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(400, 46);
+            txtNome.Location = new Point(268, 53);
             txtNome.Name = "txtNome";
             txtNome.PlaceholderText = "Nome";
             txtNome.Size = new Size(219, 23);
@@ -57,7 +57,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(719, 46);
+            txtUsuario.Location = new Point(587, 53);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "usuario";
             txtUsuario.Size = new Size(195, 23);
@@ -65,7 +65,7 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(719, 96);
+            txtSenha.Location = new Point(587, 103);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
             txtSenha.PlaceholderText = "Senha";
@@ -74,7 +74,7 @@
             // 
             // txtTelefone
             // 
-            txtTelefone.Location = new Point(400, 126);
+            txtTelefone.Location = new Point(268, 133);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.PlaceholderText = "Telefone";
             txtTelefone.Size = new Size(219, 23);
@@ -82,7 +82,7 @@
             // 
             // txtRua
             // 
-            txtRua.Location = new Point(400, 172);
+            txtRua.Location = new Point(268, 179);
             txtRua.Name = "txtRua";
             txtRua.PlaceholderText = "Rua";
             txtRua.Size = new Size(219, 23);
@@ -90,7 +90,7 @@
             // 
             // txtComplemento
             // 
-            txtComplemento.Location = new Point(400, 263);
+            txtComplemento.Location = new Point(268, 270);
             txtComplemento.Name = "txtComplemento";
             txtComplemento.PlaceholderText = "Complemento";
             txtComplemento.Size = new Size(219, 23);
@@ -98,7 +98,7 @@
             // 
             // txtNumero
             // 
-            txtNumero.Location = new Point(400, 224);
+            txtNumero.Location = new Point(268, 231);
             txtNumero.Name = "txtNumero";
             txtNumero.PlaceholderText = "Numero";
             txtNumero.Size = new Size(94, 23);
@@ -106,7 +106,7 @@
             // 
             // txtCep
             // 
-            txtCep.Location = new Point(519, 224);
+            txtCep.Location = new Point(387, 231);
             txtCep.Name = "txtCep";
             txtCep.PlaceholderText = "CEP";
             txtCep.Size = new Size(100, 23);
@@ -114,7 +114,7 @@
             // 
             // btnCadastrar
             // 
-            btnCadastrar.Location = new Point(758, 248);
+            btnCadastrar.Location = new Point(626, 255);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(112, 50);
             btnCadastrar.TabIndex = 9;
@@ -124,7 +124,7 @@
             // 
             // txtSenha1
             // 
-            txtSenha1.Location = new Point(719, 142);
+            txtSenha1.Location = new Point(587, 149);
             txtSenha1.Name = "txtSenha1";
             txtSenha1.PasswordChar = '*';
             txtSenha1.PlaceholderText = "Confirmar Senha";
@@ -144,7 +144,7 @@
             cbxADM.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxADM.FormattingEnabled = true;
             cbxADM.Items.AddRange(new object[] { "CLT", "Patrão" });
-            cbxADM.Location = new Point(743, 202);
+            cbxADM.Location = new Point(611, 209);
             cbxADM.Name = "cbxADM";
             cbxADM.Size = new Size(152, 23);
             cbxADM.TabIndex = 11;

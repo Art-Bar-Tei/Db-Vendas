@@ -41,29 +41,35 @@
             btnProximo = new Button();
             lblPaginas = new Label();
             cbxQuantidadeItens = new ComboBox();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            groupBox = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)txtQuantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
+            groupBox.SuspendLayout();
             SuspendLayout();
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(36, 37);
+            txtNome.Location = new Point(6, 21);
             txtNome.Name = "txtNome";
             txtNome.PlaceholderText = "Nome";
-            txtNome.Size = new Size(287, 23);
+            txtNome.Size = new Size(402, 23);
             txtNome.TabIndex = 0;
             // 
             // txtMarca
             // 
-            txtMarca.Location = new Point(342, 37);
+            txtMarca.Location = new Point(6, 75);
             txtMarca.Name = "txtMarca";
             txtMarca.PlaceholderText = "Marca";
-            txtMarca.Size = new Size(233, 23);
+            txtMarca.Size = new Size(276, 23);
             txtMarca.TabIndex = 1;
             // 
             // txtPreco
             // 
-            txtPreco.Location = new Point(36, 85);
+            txtPreco.Location = new Point(414, 21);
             txtPreco.Name = "txtPreco";
             txtPreco.PlaceholderText = "R$ 0000.00";
             txtPreco.Size = new Size(184, 23);
@@ -71,7 +77,7 @@
             // 
             // txtQuantidade
             // 
-            txtQuantidade.Location = new Point(243, 86);
+            txtQuantidade.Location = new Point(288, 76);
             txtQuantidade.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             txtQuantidade.Minimum = new decimal(new int[] { 1, 0, 0, int.MinValue });
             txtQuantidade.Name = "txtQuantidade";
@@ -80,7 +86,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(451, 85);
+            button1.Location = new Point(414, 90);
             button1.Name = "button1";
             button1.Size = new Size(124, 52);
             button1.TabIndex = 4;
@@ -94,19 +100,19 @@
             dgvProdutos.AllowUserToDeleteRows = false;
             dgvProdutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProdutos.Location = new Point(12, 174);
+            dgvProdutos.Location = new Point(14, 164);
             dgvProdutos.MultiSelect = false;
             dgvProdutos.Name = "dgvProdutos";
             dgvProdutos.ReadOnly = true;
             dgvProdutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProdutos.Size = new Size(757, 449);
+            dgvProdutos.Size = new Size(710, 459);
             dgvProdutos.TabIndex = 5;
             dgvProdutos.CellDoubleClick += dgvProdutos_CellDoubleClick;
             // 
             // btnAtualizar
             // 
             btnAtualizar.Enabled = false;
-            btnAtualizar.Location = new Point(634, 26);
+            btnAtualizar.Location = new Point(414, 50);
             btnAtualizar.Name = "btnAtualizar";
             btnAtualizar.Size = new Size(112, 34);
             btnAtualizar.TabIndex = 6;
@@ -117,7 +123,7 @@
             // btnExcluir
             // 
             btnExcluir.Enabled = false;
-            btnExcluir.Location = new Point(634, 78);
+            btnExcluir.Location = new Point(532, 50);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(112, 34);
             btnExcluir.TabIndex = 7;
@@ -127,7 +133,7 @@
             // 
             // btnAnterior
             // 
-            btnAnterior.Location = new Point(27, 643);
+            btnAnterior.Location = new Point(12, 639);
             btnAnterior.Name = "btnAnterior";
             btnAnterior.Size = new Size(95, 56);
             btnAnterior.TabIndex = 8;
@@ -137,7 +143,7 @@
             // 
             // btnProximo
             // 
-            btnProximo.Location = new Point(668, 643);
+            btnProximo.Location = new Point(627, 639);
             btnProximo.Name = "btnProximo";
             btnProximo.Size = new Size(87, 56);
             btnProximo.TabIndex = 9;
@@ -147,7 +153,7 @@
             // 
             // lblPaginas
             // 
-            lblPaginas.Location = new Point(196, 643);
+            lblPaginas.Location = new Point(166, 639);
             lblPaginas.Name = "lblPaginas";
             lblPaginas.Size = new Size(402, 56);
             lblPaginas.TabIndex = 10;
@@ -159,30 +165,79 @@
             cbxQuantidadeItens.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxQuantidadeItens.FormattingEnabled = true;
             cbxQuantidadeItens.Items.AddRange(new object[] { "5", "10", "25", "50", "100" });
-            cbxQuantidadeItens.Location = new Point(621, 145);
+            cbxQuantidadeItens.Location = new Point(544, 119);
             cbxQuantidadeItens.Name = "cbxQuantidadeItens";
             cbxQuantidadeItens.Size = new Size(125, 23);
             cbxQuantidadeItens.TabIndex = 11;
             cbxQuantidadeItens.SelectedIndexChanged += cbxQuantidadeItens_SelectedIndexChanged;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 3);
+            label1.Name = "label1";
+            label1.Size = new Size(42, 15);
+            label1.TabIndex = 12;
+            label1.Text = "NOME";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(414, 3);
+            label2.Name = "label2";
+            label2.Size = new Size(44, 15);
+            label2.TabIndex = 12;
+            label2.Text = "PREÇO";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 60);
+            label3.Name = "label3";
+            label3.Size = new Size(49, 15);
+            label3.TabIndex = 12;
+            label3.Text = "MARCA";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(288, 60);
+            label4.Name = "label4";
+            label4.Size = new Size(81, 15);
+            label4.TabIndex = 12;
+            label4.Text = "QUANTIDADE";
+            // 
+            // groupBox
+            // 
+            groupBox.Controls.Add(label4);
+            groupBox.Controls.Add(label3);
+            groupBox.Controls.Add(label2);
+            groupBox.Controls.Add(label1);
+            groupBox.Controls.Add(cbxQuantidadeItens);
+            groupBox.Controls.Add(btnExcluir);
+            groupBox.Controls.Add(btnAtualizar);
+            groupBox.Controls.Add(button1);
+            groupBox.Controls.Add(txtQuantidade);
+            groupBox.Controls.Add(txtPreco);
+            groupBox.Controls.Add(txtMarca);
+            groupBox.Controls.Add(txtNome);
+            groupBox.Location = new Point(30, 13);
+            groupBox.Name = "groupBox";
+            groupBox.Size = new Size(694, 145);
+            groupBox.TabIndex = 13;
+            groupBox.TabStop = false;
+            // 
             // frmCadastroProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(781, 732);
-            Controls.Add(cbxQuantidadeItens);
+            BackColor = SystemColors.Window;
+            ClientSize = new Size(726, 732);
+            Controls.Add(groupBox);
             Controls.Add(lblPaginas);
             Controls.Add(btnProximo);
             Controls.Add(btnAnterior);
-            Controls.Add(btnExcluir);
-            Controls.Add(btnAtualizar);
             Controls.Add(dgvProdutos);
-            Controls.Add(button1);
-            Controls.Add(txtQuantidade);
-            Controls.Add(txtPreco);
-            Controls.Add(txtMarca);
-            Controls.Add(txtNome);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCadastroProduto";
@@ -190,8 +245,9 @@
             Load += frmCadastroProduto_Load;
             ((System.ComponentModel.ISupportInitialize)txtQuantidade).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).EndInit();
+            groupBox.ResumeLayout(false);
+            groupBox.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -208,5 +264,10 @@
         private Button btnProximo;
         private Label lblPaginas;
         private ComboBox cbxQuantidadeItens;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private GroupBox groupBox;
     }
 }

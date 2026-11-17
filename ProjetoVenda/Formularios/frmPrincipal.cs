@@ -34,6 +34,7 @@ namespace ProjetoVenda.view
             {
                 this.btnCadFuncionario.Enabled = false;
             }
+            lblUsername.Text = controller.usuarioAutenticado()?.nome ?? "";
 
         }
 

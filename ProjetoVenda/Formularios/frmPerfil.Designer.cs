@@ -129,9 +129,9 @@
             lblUsuario.AutoSize = true;
             lblUsuario.Location = new Point(389, 286);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(30, 15);
+            lblUsuario.Size = new Size(47, 15);
             lblUsuario.TabIndex = 8;
-            lblUsuario.Text = "User";
+            lblUsuario.Text = "Usuário";
             // 
             // txtNome
             // 
@@ -170,7 +170,6 @@
             // 
             // txtComplemento
             // 
-            txtComplemento.Cursor = Cursors.No;
             txtComplemento.Location = new Point(37, 319);
             txtComplemento.Multiline = true;
             txtComplemento.Name = "txtComplemento";
@@ -188,6 +187,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Window;
             ClientSize = new Size(817, 450);
             Controls.Add(txtUser);
             Controls.Add(txtComplemento);

@@ -46,11 +46,12 @@
             // lblUsername
             // 
             lblUsername.AutoSize = true;
-            lblUsername.Location = new Point(45, 65);
+            lblUsername.Location = new Point(0, 0);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(97, 15);
             lblUsername.TabIndex = 0;
             lblUsername.Text = "nome do usuario";
+            lblUsername.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnCadFuncionario
             // 
@@ -83,7 +84,7 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(192, 710);
+            panel2.Size = new Size(192, 783);
             panel2.TabIndex = 4;
             // 
             // btnCadVendas
@@ -98,7 +99,7 @@
             // 
             // btnPerfil
             // 
-            btnPerfil.Location = new Point(29, 559);
+            btnPerfil.Location = new Point(29, 536);
             btnPerfil.Name = "btnPerfil";
             btnPerfil.Size = new Size(104, 44);
             btnPerfil.TabIndex = 4;
@@ -108,7 +109,8 @@
             // 
             // btnSair
             // 
-            btnSair.Location = new Point(29, 634);
+            btnSair.Cursor = Cursors.No;
+            btnSair.Location = new Point(29, 613);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(104, 44);
             btnSair.TabIndex = 3;
@@ -133,7 +135,7 @@
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(1098, 80);
             lblTitulo.TabIndex = 0;
-            lblTitulo.Text = "Titulo da Pagina";
+            lblTitulo.Text = "SEJA BEM VINDO(A)";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // painelPrincipal
@@ -141,19 +143,21 @@
             painelPrincipal.Dock = DockStyle.Fill;
             painelPrincipal.Location = new Point(192, 80);
             painelPrincipal.Name = "painelPrincipal";
-            painelPrincipal.Size = new Size(1098, 630);
+            painelPrincipal.Size = new Size(1098, 703);
             painelPrincipal.TabIndex = 6;
             // 
             // frmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1290, 710);
+            BackColor = SystemColors.Window;
+            ClientSize = new Size(1290, 783);
             Controls.Add(painelPrincipal);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmPrincipal";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Tela Inicial";
             Load += frmPrincipal_Load;
             panel2.ResumeLayout(false);

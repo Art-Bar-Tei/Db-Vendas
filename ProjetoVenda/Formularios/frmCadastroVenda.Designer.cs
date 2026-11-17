@@ -104,7 +104,7 @@
             // 
             lblPrecoTotal.AutoSize = true;
             lblPrecoTotal.Font = new Font("Segoe UI", 26F);
-            lblPrecoTotal.Location = new Point(455, 540);
+            lblPrecoTotal.Location = new Point(669, 540);
             lblPrecoTotal.Name = "lblPrecoTotal";
             lblPrecoTotal.Size = new Size(201, 47);
             lblPrecoTotal.TabIndex = 6;
@@ -126,6 +126,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Window;
             ClientSize = new Size(882, 694);
             Controls.Add(btnCadastrar);
             Controls.Add(lblPrecoTotal);
