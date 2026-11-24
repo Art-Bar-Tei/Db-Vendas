@@ -65,9 +65,11 @@ namespace ProjetoVenda.view
                 MessageBox.Show(ex.Message, "Erro No Produto",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            this.btnAtualizar.Enabled = false;
+            this.btnExcluir.Enabled = false;
 
         }
+       
 
         private void frmCadastroProduto_Load(object sender, EventArgs e)
         {
@@ -104,7 +106,7 @@ namespace ProjetoVenda.view
             // evento de atualizar
             produtoSelecionado.nome = this.txtNome.Text;
             produtoSelecionado.marca = this.txtMarca.Text;
-            produtoSelecionado.preco = (int)(Convert.ToInt32(this.txtPreco.Text) /100);
+            produtoSelecionado.preco = (int)(Convert.ToInt32(this.txtPreco.Text));
             produtoSelecionado.quantidade = (int)this.txtQuantidade.Value;
 
             bool resp = controller.atualizar(produtoSelecionado);

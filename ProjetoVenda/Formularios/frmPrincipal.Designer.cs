@@ -55,9 +55,11 @@
             // 
             // btnCadFuncionario
             // 
-            btnCadFuncionario.Location = new Point(29, 246);
+            btnCadFuncionario.Image = Properties.Resources.carteira_de_identidade;
+            btnCadFuncionario.ImageAlign = ContentAlignment.BottomRight;
+            btnCadFuncionario.Location = new Point(12, 147);
             btnCadFuncionario.Name = "btnCadFuncionario";
-            btnCadFuncionario.Size = new Size(104, 73);
+            btnCadFuncionario.Size = new Size(133, 85);
             btnCadFuncionario.TabIndex = 1;
             btnCadFuncionario.Text = "Cadastrar Funcionario";
             btnCadFuncionario.UseVisualStyleBackColor = true;
@@ -65,9 +67,11 @@
             // 
             // btnCadProduto
             // 
-            btnCadProduto.Location = new Point(29, 129);
+            btnCadProduto.Image = Properties.Resources.produtos_quimicos__1_;
+            btnCadProduto.ImageAlign = ContentAlignment.BottomRight;
+            btnCadProduto.Location = new Point(12, 251);
             btnCadProduto.Name = "btnCadProduto";
-            btnCadProduto.Size = new Size(104, 85);
+            btnCadProduto.Size = new Size(133, 85);
             btnCadProduto.TabIndex = 2;
             btnCadProduto.Text = "Cadastrar Produto";
             btnCadProduto.UseVisualStyleBackColor = true;
@@ -89,9 +93,11 @@
             // 
             // btnCadVendas
             // 
-            btnCadVendas.Location = new Point(29, 368);
+            btnCadVendas.Image = Properties.Resources.adicionar_ao_carrinho__1_;
+            btnCadVendas.ImageAlign = ContentAlignment.BottomRight;
+            btnCadVendas.Location = new Point(12, 373);
             btnCadVendas.Name = "btnCadVendas";
-            btnCadVendas.Size = new Size(104, 73);
+            btnCadVendas.Size = new Size(133, 85);
             btnCadVendas.TabIndex = 5;
             btnCadVendas.Text = "Cadastrar Venda";
             btnCadVendas.UseVisualStyleBackColor = true;
@@ -110,6 +116,8 @@
             // btnSair
             // 
             btnSair.Cursor = Cursors.No;
+            btnSair.Image = Properties.Resources.digitar;
+            btnSair.ImageAlign = ContentAlignment.BottomRight;
             btnSair.Location = new Point(29, 613);
             btnSair.Name = "btnSair";
             btnSair.Size = new Size(104, 44);
@@ -124,7 +132,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(192, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1098, 80);
+            panel1.Size = new Size(1054, 80);
             panel1.TabIndex = 5;
             // 
             // lblTitulo
@@ -133,7 +141,7 @@
             lblTitulo.Font = new Font("Segoe UI", 25F);
             lblTitulo.Location = new Point(0, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(1098, 80);
+            lblTitulo.Size = new Size(1054, 80);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "SEJA BEM VINDO(A)";
             lblTitulo.TextAlign = ContentAlignment.MiddleCenter;
@@ -143,7 +151,7 @@
             painelPrincipal.Dock = DockStyle.Fill;
             painelPrincipal.Location = new Point(192, 80);
             painelPrincipal.Name = "painelPrincipal";
-            painelPrincipal.Size = new Size(1098, 703);
+            painelPrincipal.Size = new Size(1054, 703);
             painelPrincipal.TabIndex = 6;
             // 
             // frmPrincipal
@@ -151,7 +159,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(1290, 783);
+            ClientSize = new Size(1246, 783);
             Controls.Add(painelPrincipal);
             Controls.Add(panel1);
             Controls.Add(panel2);

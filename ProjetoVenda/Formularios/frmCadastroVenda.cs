@@ -1,4 +1,5 @@
-﻿using ProjetoVenda.controller;
+﻿using ProjetoVenda.Controle;
+using ProjetoVenda.controller;
 using ProjetoVenda.model;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace ProjetoVenda.view
         private List<Item> carrinho = new List<Item>();
         private ProdutoControle producoControle;
         private VendaControle vendaControle;
+        private Relatorio relatorio;
 
         public frmCadastroVenda()
         {
@@ -25,6 +27,7 @@ namespace ProjetoVenda.view
 
             producoControle = new ProdutoControle();
             vendaControle = new VendaControle();
+            relatorio = new Relatorio();
         }
         
         
@@ -167,6 +170,7 @@ namespace ProjetoVenda.view
                     MessageBox.Show
                         ("Venda cadastrada com sucesso!", "Sucesso",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    relatorio.SalvarPDF();
                 }
                 else
                 {

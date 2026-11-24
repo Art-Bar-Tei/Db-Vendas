@@ -46,9 +46,15 @@
             label3 = new Label();
             label4 = new Label();
             groupBox = new GroupBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
+            panel2 = new Panel();
             ((System.ComponentModel.ISupportInitialize)txtQuantidade).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).BeginInit();
             groupBox.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // txtNome
@@ -61,7 +67,8 @@
             // 
             // txtMarca
             // 
-            txtMarca.Location = new Point(6, 75);
+            txtMarca.Anchor = AnchorStyles.Left;
+            txtMarca.Location = new Point(6, 72);
             txtMarca.Name = "txtMarca";
             txtMarca.PlaceholderText = "Marca";
             txtMarca.Size = new Size(276, 23);
@@ -69,9 +76,9 @@
             // 
             // txtPreco
             // 
-            txtPreco.Location = new Point(414, 21);
+            txtPreco.Location = new Point(414, 18);
             txtPreco.Name = "txtPreco";
-            txtPreco.PlaceholderText = "R$ 0000.00";
+            txtPreco.PlaceholderText = "10000=R$ 1.00";
             txtPreco.Size = new Size(184, 23);
             txtPreco.TabIndex = 2;
             // 
@@ -86,7 +93,8 @@
             // 
             // button1
             // 
-            button1.Location = new Point(414, 90);
+            button1.Anchor = AnchorStyles.Right;
+            button1.Location = new Point(414, 87);
             button1.Name = "button1";
             button1.Size = new Size(124, 52);
             button1.TabIndex = 4;
@@ -100,19 +108,21 @@
             dgvProdutos.AllowUserToDeleteRows = false;
             dgvProdutos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvProdutos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProdutos.Location = new Point(14, 164);
+            dgvProdutos.Dock = DockStyle.Fill;
+            dgvProdutos.Location = new Point(3, 178);
             dgvProdutos.MultiSelect = false;
             dgvProdutos.Name = "dgvProdutos";
             dgvProdutos.ReadOnly = true;
             dgvProdutos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProdutos.Size = new Size(710, 459);
+            dgvProdutos.Size = new Size(816, 362);
             dgvProdutos.TabIndex = 5;
             dgvProdutos.CellDoubleClick += dgvProdutos_CellDoubleClick;
             // 
             // btnAtualizar
             // 
+            btnAtualizar.Anchor = AnchorStyles.Right;
             btnAtualizar.Enabled = false;
-            btnAtualizar.Location = new Point(414, 50);
+            btnAtualizar.Location = new Point(414, 47);
             btnAtualizar.Name = "btnAtualizar";
             btnAtualizar.Size = new Size(112, 34);
             btnAtualizar.TabIndex = 6;
@@ -122,8 +132,9 @@
             // 
             // btnExcluir
             // 
+            btnExcluir.Anchor = AnchorStyles.Right;
             btnExcluir.Enabled = false;
-            btnExcluir.Location = new Point(532, 50);
+            btnExcluir.Location = new Point(532, 47);
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Size = new Size(112, 34);
             btnExcluir.TabIndex = 7;
@@ -133,7 +144,8 @@
             // 
             // btnAnterior
             // 
-            btnAnterior.Location = new Point(12, 639);
+            btnAnterior.Anchor = AnchorStyles.Left;
+            btnAnterior.Location = new Point(43, 11);
             btnAnterior.Name = "btnAnterior";
             btnAnterior.Size = new Size(95, 56);
             btnAnterior.TabIndex = 8;
@@ -143,7 +155,8 @@
             // 
             // btnProximo
             // 
-            btnProximo.Location = new Point(627, 639);
+            btnProximo.Anchor = AnchorStyles.Right;
+            btnProximo.Location = new Point(709, 11);
             btnProximo.Name = "btnProximo";
             btnProximo.Size = new Size(87, 56);
             btnProximo.TabIndex = 9;
@@ -153,19 +166,21 @@
             // 
             // lblPaginas
             // 
-            lblPaginas.Location = new Point(166, 639);
+            lblPaginas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            lblPaginas.Location = new Point(241, 15);
             lblPaginas.Name = "lblPaginas";
-            lblPaginas.Size = new Size(402, 56);
+            lblPaginas.Size = new Size(402, 48);
             lblPaginas.TabIndex = 10;
             lblPaginas.Text = "Pagina 1 de 5";
             lblPaginas.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // cbxQuantidadeItens
             // 
+            cbxQuantidadeItens.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             cbxQuantidadeItens.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxQuantidadeItens.FormattingEnabled = true;
             cbxQuantidadeItens.Items.AddRange(new object[] { "5", "10", "25", "50", "100" });
-            cbxQuantidadeItens.Location = new Point(544, 119);
+            cbxQuantidadeItens.Location = new Point(544, 116);
             cbxQuantidadeItens.Name = "cbxQuantidadeItens";
             cbxQuantidadeItens.Size = new Size(125, 23);
             cbxQuantidadeItens.TabIndex = 11;
@@ -200,8 +215,9 @@
             // 
             // label4
             // 
+            label4.Anchor = AnchorStyles.Left;
             label4.AutoSize = true;
-            label4.Location = new Point(288, 60);
+            label4.Location = new Point(288, 57);
             label4.Name = "label4";
             label4.Size = new Size(81, 15);
             label4.TabIndex = 12;
@@ -221,23 +237,57 @@
             groupBox.Controls.Add(txtPreco);
             groupBox.Controls.Add(txtMarca);
             groupBox.Controls.Add(txtNome);
-            groupBox.Location = new Point(30, 13);
+            groupBox.Dock = DockStyle.Fill;
+            groupBox.Location = new Point(0, 0);
             groupBox.Name = "groupBox";
-            groupBox.Size = new Size(694, 145);
+            groupBox.Size = new Size(816, 169);
             groupBox.TabIndex = 13;
             groupBox.TabStop = false;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Controls.Add(dgvProdutos, 0, 1);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 2);
+            tableLayoutPanel1.Controls.Add(panel2, 0, 0);
+            tableLayoutPanel1.Location = new Point(23, 64);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 175F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 72F));
+            tableLayoutPanel1.Size = new Size(822, 615);
+            tableLayoutPanel1.TabIndex = 14;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(btnProximo);
+            panel1.Controls.Add(lblPaginas);
+            panel1.Controls.Add(btnAnterior);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(3, 546);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(816, 66);
+            panel1.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(groupBox);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(816, 169);
+            panel2.TabIndex = 7;
             // 
             // frmCadastroProduto
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(726, 732);
-            Controls.Add(groupBox);
-            Controls.Add(lblPaginas);
-            Controls.Add(btnProximo);
-            Controls.Add(btnAnterior);
-            Controls.Add(dgvProdutos);
+            ClientSize = new Size(859, 837);
+            Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCadastroProduto";
@@ -247,6 +297,9 @@
             ((System.ComponentModel.ISupportInitialize)dgvProdutos).EndInit();
             groupBox.ResumeLayout(false);
             groupBox.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -269,5 +322,8 @@
         private Label label3;
         private Label label4;
         private GroupBox groupBox;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Panel panel1;
+        private Panel panel2;
     }
 }
