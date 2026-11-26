@@ -63,9 +63,9 @@
             lblPreco.AutoSize = true;
             lblPreco.Location = new Point(16, 72);
             lblPreco.Name = "lblPreco";
-            lblPreco.Size = new Size(101, 15);
+            lblPreco.Size = new Size(88, 15);
             lblPreco.TabIndex = 1;
-            lblPreco.Text = "Preço Unitario: R$";
+            lblPreco.Text = "Preço Unitario: ";
             // 
             // lblQuantidade
             // 

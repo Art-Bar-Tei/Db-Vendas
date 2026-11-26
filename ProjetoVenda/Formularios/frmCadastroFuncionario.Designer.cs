@@ -36,25 +36,25 @@
             txtComplemento = new TextBox();
             txtNumero = new TextBox();
             txtCep = new TextBox();
-            dgvFuncionario = new DataGridView();
             imageList1 = new ImageList(components);
             imageList2 = new ImageList(components);
             tableLayoutPanel1 = new TableLayoutPanel();
+            dgvFuncionario = new DataGridView();
             panel1 = new Panel();
             txtUsuario = new TextBox();
             cbxADM = new ComboBox();
             txtSenha = new TextBox();
             txtSenha1 = new TextBox();
             btnCadastrar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvFuncionario).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvFuncionario).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // txtNome
             // 
             txtNome.Anchor = AnchorStyles.Top;
-            txtNome.Location = new Point(455, 20);
+            txtNome.Location = new Point(438, 20);
             txtNome.Name = "txtNome";
             txtNome.PlaceholderText = "Nome";
             txtNome.Size = new Size(219, 23);
@@ -63,7 +63,7 @@
             // txtTelefone
             // 
             txtTelefone.Anchor = AnchorStyles.Top;
-            txtTelefone.Location = new Point(455, 84);
+            txtTelefone.Location = new Point(438, 84);
             txtTelefone.Name = "txtTelefone";
             txtTelefone.PlaceholderText = "Telefone";
             txtTelefone.Size = new Size(219, 23);
@@ -72,7 +72,7 @@
             // txtRua
             // 
             txtRua.Anchor = AnchorStyles.Top;
-            txtRua.Location = new Point(455, 130);
+            txtRua.Location = new Point(438, 130);
             txtRua.Name = "txtRua";
             txtRua.PlaceholderText = "Rua";
             txtRua.Size = new Size(219, 23);
@@ -81,7 +81,7 @@
             // txtComplemento
             // 
             txtComplemento.Anchor = AnchorStyles.Top;
-            txtComplemento.Location = new Point(455, 221);
+            txtComplemento.Location = new Point(438, 221);
             txtComplemento.Name = "txtComplemento";
             txtComplemento.PlaceholderText = "Complemento";
             txtComplemento.Size = new Size(219, 23);
@@ -90,7 +90,7 @@
             // txtNumero
             // 
             txtNumero.Anchor = AnchorStyles.Top;
-            txtNumero.Location = new Point(455, 182);
+            txtNumero.Location = new Point(438, 182);
             txtNumero.Name = "txtNumero";
             txtNumero.PlaceholderText = "Numero";
             txtNumero.Size = new Size(94, 23);
@@ -99,21 +99,11 @@
             // txtCep
             // 
             txtCep.Anchor = AnchorStyles.Top;
-            txtCep.Location = new Point(574, 182);
+            txtCep.Location = new Point(557, 182);
             txtCep.Name = "txtCep";
             txtCep.PlaceholderText = "CEP";
             txtCep.Size = new Size(100, 23);
             txtCep.TabIndex = 4;
-            // 
-            // dgvFuncionario
-            // 
-            dgvFuncionario.AllowUserToAddRows = false;
-            dgvFuncionario.AllowUserToDeleteRows = false;
-            dgvFuncionario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvFuncionario.Location = new Point(3, 326);
-            dgvFuncionario.Name = "dgvFuncionario";
-            dgvFuncionario.Size = new Size(1327, 282);
-            dgvFuncionario.TabIndex = 10;
             // 
             // imageList1
             // 
@@ -130,23 +120,34 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
             tableLayoutPanel1.Controls.Add(dgvFuncionario, 0, 1);
+            tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(1368, 646);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 41.6408653F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 58.3591347F));
+            tableLayoutPanel1.Size = new Size(1335, 646);
             tableLayoutPanel1.TabIndex = 12;
+            // 
+            // dgvFuncionario
+            // 
+            dgvFuncionario.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvFuncionario.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvFuncionario.Dock = DockStyle.Fill;
+            dgvFuncionario.Location = new Point(3, 271);
+            dgvFuncionario.Name = "dgvFuncionario";
+            dgvFuncionario.Size = new Size(1329, 372);
+            dgvFuncionario.TabIndex = 13;
             // 
             // panel1
             // 
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.BackColor = Color.White;
             panel1.Controls.Add(txtUsuario);
             panel1.Controls.Add(cbxADM);
             panel1.Controls.Add(txtSenha);
@@ -160,13 +161,13 @@
             panel1.Controls.Add(txtRua);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1362, 317);
+            panel1.Size = new Size(1329, 262);
             panel1.TabIndex = 11;
             // 
             // txtUsuario
             // 
             txtUsuario.Anchor = AnchorStyles.Top;
-            txtUsuario.Location = new Point(714, 20);
+            txtUsuario.Location = new Point(697, 20);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "usuario";
             txtUsuario.Size = new Size(195, 23);
@@ -178,7 +179,7 @@
             cbxADM.DropDownStyle = ComboBoxStyle.DropDownList;
             cbxADM.FormattingEnabled = true;
             cbxADM.Items.AddRange(new object[] { "CLT", "Patrão" });
-            cbxADM.Location = new Point(723, 163);
+            cbxADM.Location = new Point(706, 163);
             cbxADM.Name = "cbxADM";
             cbxADM.Size = new Size(152, 23);
             cbxADM.TabIndex = 11;
@@ -186,7 +187,7 @@
             // txtSenha
             // 
             txtSenha.Anchor = AnchorStyles.Top;
-            txtSenha.Location = new Point(714, 70);
+            txtSenha.Location = new Point(697, 70);
             txtSenha.Name = "txtSenha";
             txtSenha.PasswordChar = '*';
             txtSenha.PlaceholderText = "Senha";
@@ -196,7 +197,7 @@
             // txtSenha1
             // 
             txtSenha1.Anchor = AnchorStyles.Top;
-            txtSenha1.Location = new Point(714, 116);
+            txtSenha1.Location = new Point(697, 116);
             txtSenha1.Name = "txtSenha1";
             txtSenha1.PasswordChar = '*';
             txtSenha1.PlaceholderText = "Confirmar Senha";
@@ -206,7 +207,7 @@
             // btnCadastrar
             // 
             btnCadastrar.Anchor = AnchorStyles.Top;
-            btnCadastrar.Location = new Point(742, 206);
+            btnCadastrar.Location = new Point(725, 206);
             btnCadastrar.Name = "btnCadastrar";
             btnCadastrar.Size = new Size(112, 50);
             btnCadastrar.TabIndex = 9;
@@ -218,15 +219,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1368, 646);
+            ClientSize = new Size(1335, 646);
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmCadastroFuncionario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Funcionario";
             Load += frmCadastroFuncionario_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvFuncionario).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvFuncionario).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -240,7 +241,6 @@
         private TextBox txtComplemento;
         private TextBox txtNumero;
         private TextBox txtCep;
-        private DataGridView dgvFuncionario;
         private ImageList imageList1;
         private ImageList imageList2;
         private TableLayoutPanel tableLayoutPanel1;
@@ -250,5 +250,6 @@
         private TextBox txtSenha;
         private TextBox txtSenha1;
         private Button btnCadastrar;
+        private DataGridView dgvFuncionario;
     }
 }

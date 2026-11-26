@@ -29,8 +29,8 @@ namespace ProjetoVenda.view
             vendaControle = new VendaControle();
             relatorio = new Relatorio();
         }
-        
-        
+
+
         private void configurarCarrinho()
         {
             this.dgvCarrinho.AutoGenerateColumns = false;
@@ -94,8 +94,8 @@ namespace ProjetoVenda.view
         {
             this.dgvCarrinho.DataSource = this.carrinho.ToList();
             this.btnCadastrar.Enabled = this.carrinho.Count() > 0;
-            decimal total = this.carrinho.Sum(item => item.subTotal);
-            this.lblPrecoTotal.Text = $"Total Venda: R$ {total:C2}";
+            int total = (int)this.carrinho.Sum(item => item.subTotal);
+            this.lblPrecoTotal.Text = $"Total Venda: {total:C2}";
         }
         private void frmCadastroVenda_Load(object sender, EventArgs e)
         {
@@ -107,7 +107,7 @@ namespace ProjetoVenda.view
         private void cbxProdutos_SelectedIndexChanged(object sender, EventArgs e)
         {
             Produto? product = cbxProdutos.SelectedItem as Produto;
-            this.lblPreco.Text = $"Preço Unitario: R$ {product.valorReal:C2}";//QUEBROUUUUUU
+            this.lblPreco.Text = $"Preço Unitario: {product.valorReal:C2}";
             this.lblQuantidade.Text = $"Quantidade Disponivel: {product.quantidade}";
             this.nunQuantidade.Maximum = product.quantidade;
             this.nunQuantidade.Value = (this.nunQuantidade.Maximum > 0) ? 1 : 0;
@@ -140,7 +140,7 @@ namespace ProjetoVenda.view
             product.quantidade -= quantidade;
             this.cbxProdutos.SelectedItem = product;
             cbxProdutos_SelectedIndexChanged(this, EventArgs.Empty);
-            if(quantidade < 0)
+            if (quantidade < 0)
             {
                 MessageBox.Show("Quantidade inválida!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -159,18 +159,24 @@ namespace ProjetoVenda.view
             {
                 return;
             }
-            
+
             try
             {
                 bool resposta = vendaControle.cadastrarVenda(this.carrinho);
                 if (resposta)
                 {
-                    carrinho.Clear();
-                    frmCadastroVenda_Load(this, EventArgs.Empty);
+                   
+
+
                     MessageBox.Show
                         ("Venda cadastrada com sucesso!", "Sucesso",
+
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    relatorio.SalvarPDF();
+                    var documento = relatorio.GerarNota(this.carrinho);
+                    relatorio.SalvarPDF(documento);
+                    carrinho.Clear();
+                    frmCadastroVenda_Load(this, EventArgs.Empty);
+                    //relatorio.SalvarPDF();
                 }
                 else
                 {
@@ -199,7 +205,7 @@ namespace ProjetoVenda.view
                 ExcluirItemCarrinho(e.RowIndex);
             }
         }
-        
+
         private void ExcluirItemCarrinho(int Indice)
         {
             DialogResult confirmar = MessageBox.Show
